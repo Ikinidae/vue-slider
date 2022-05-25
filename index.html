@@ -28,12 +28,12 @@
 
                 <div class="thumbs">
                     <div class="prev" @click="prevSlide"></div>
-                    <div class="next" @click="nextSlide"></div>
+                    <div id="next" class="next" @click="nextSlide"></div>
                     <div v-for="(slide, i) in slides"
                     class="thumb"
                     :class="i === activeSlide ? 'active' : '' "
                     :key="i">
-                        <img v-bind:src="slide.image" :alt="slide.title"/>
+                        <img v-bind:src="slide.image" :alt="slide.title" @click="clickOnSlide(i)"/>
                     </div>
                     <!-- <div class="thumb">
                         <img src="img/02.jpg" alt="Svizzera" />

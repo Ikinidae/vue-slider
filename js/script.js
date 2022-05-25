@@ -33,7 +33,6 @@ const myApp = new Vue ({
     methods : {
         nextSlide() {
             this.activeSlide++;
-            console.log(this.activeSlide);
             if(this.activeSlide > this.slides.length - 1) {
                 this.activeSlide = 0;
             }
@@ -43,8 +42,13 @@ const myApp = new Vue ({
             if(this.activeSlide < 0) {
                 this.activeSlide = this.slides.length - 1;
             }
-            console.log(this);
         },
+        clickOnSlide(activeSlide) {
+            this.activeSlide = activeSlide;
+        }
     },
 });
 
+var autoplayInterval = setInterval(() => {
+    document.getElementById("next").click();
+    }, 3000);
